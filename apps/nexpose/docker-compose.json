@@ -1,0 +1,19 @@
+
+{
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
+  "services": [
+    {
+      "name": "nexpose",
+      "image": "vouu/nexpose:preview",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nexpose",
+          "containerPath": "/opt/rapid7/nexpose/"
+        }
+      ],
+      "internalPort": 3780,
+      "isMain": true,
+    }
+  ]
+}

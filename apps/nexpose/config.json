@@ -1,0 +1,24 @@
+{
+  "name": "Nexpose",
+  "id": "nexpose",
+  "available": true,
+  "short_desc": "Nexpose integrates with Metasploit Pro to provide a vulnerability assessment and validation tool that helps you eliminate false positives, verify vulnerabilities, and test remediation measures.",
+  "author": "nexpose",
+  "port": 3780,
+  "categories": [
+    "security"
+  ],
+  "description": "<p>Vulnerability scanning and analysis is the process that detects and assesses the vulnerabilities that exist within an network infrastructure. A vulnerability is a characteristic of an asset that an attacker can exploit to gain unauthorized access to sensitive data, inject malicious code, or generate a denial of service attack. To prevent security breaches, it is important to identify and remediate security holes and vulnerabilities that can expose an asset to an attack.<br> Username: <b>admin</b> <br> Password: <b>6Rhm2wH2v3n9cgPF</b></p>",
+  "tipi_version": 2,
+  "version": "v1.11.0",
+  "source": "https://www.rapid7.com/products/nexpose",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1745082405284,
+  "updated_at": 1745674974072,
+  "dynamic_config": true,
+  "form_fields": []
+}
