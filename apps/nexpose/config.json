@@ -1,4 +1,6 @@
 {
+  "$schema": "../app-info-schema.json",
+  "dynamic_config": true,
   "name": "Nexpose",
   "id": "nexpose",
   "available": true,
@@ -9,7 +11,7 @@
     "security"
   ],
   "description": "<p>Vulnerability scanning and analysis is the process that detects and assesses the vulnerabilities that exist within an network infrastructure. A vulnerability is a characteristic of an asset that an attacker can exploit to gain unauthorized access to sensitive data, inject malicious code, or generate a denial of service attack. To prevent security breaches, it is important to identify and remediate security holes and vulnerabilities that can expose an asset to an attack.<br> Username: <b>admin</b> <br> Password: <b>6Rhm2wH2v3n9cgPF</b></p>",
-  "tipi_version": 2,
+  "tipi_version": 43,
   "version": "v1.11.0",
   "source": "https://www.rapid7.com/products/nexpose",
   "exposable": true,
