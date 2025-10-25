@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  adguard:
+    image: vouu/nexpose:preview
+    container_name: nexpose
+    volumes:
+      - ${APP_DATA_DIR}/data/nexpose:/opt/rapid7/nexpose/
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    ports:
+      - ${APP_PORT}:3780
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.nexpose-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nexpose.loadbalancer.server.port: 3780
+      traefik.http.routers.nexpose-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nexpose-insecure.entrypoints: web
+      traefik.http.routers.nexpose-insecure.service: nexpose
+      traefik.http.routers.nexpose-insecure.middlewares: nexpose-web-redirect
+      traefik.http.routers.nexpose.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nexpose.entrypoints: websecure
+      traefik.http.routers.nexpose.service: nexpose
+      traefik.http.routers.nexpose.tls.certresolver: myresolver
+      traefik.http.routers.nexpose-local-insecure.rule: Host(`nexpose.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nexpose-local-insecure.entrypoints: web
+      traefik.http.routers.nexpose-local-insecure.service: nexpose
+      traefik.http.routers.nexpose-local-insecure.middlewares: nexpose-web-redirect
+      traefik.http.routers.nexpose-local.rule: Host(`nexpose.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nexpose-local.entrypoints: websecure
+      traefik.http.routers.nexpose-local.service: nexpose
+      traefik.http.routers.nexpose-local.tls: true
+      runtipi.managed: true
